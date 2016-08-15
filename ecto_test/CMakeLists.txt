@@ -16,6 +16,8 @@ catkin_package()
 ectomodule(tutorial DESTINATION ${PROJECT_NAME} INSTALL
   src/tutorial.cpp
   src/hello.cpp
+  src/add.cpp
+  src/increment.cpp
 )
 
 include_directories(

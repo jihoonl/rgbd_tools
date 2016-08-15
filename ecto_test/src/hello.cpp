@@ -24,4 +24,3 @@ namespace tutorial
 // third argument: the name of that cell as seen in Python
 // fourht argument: a description of what that cell does
 ECTO_CELL(tutorial, tutorial::Hello, "Hello", "Prints 'Hello' to standard output.");
-

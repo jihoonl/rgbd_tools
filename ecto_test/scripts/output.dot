@@ -1,0 +1,22 @@
+digraph G {
+graph [rankdir=TB, ranksep=1]
+edge [labelfontsize=8]
+node [shape=plaintext]
+0[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">  <TR> <TD ROWSPAN="1" COLSPAN="1" BGCOLOR="khaki">Inc 1</TD> <TD PORT="p_start" BGCOLOR="lightblue">start</TD>
+ </TR>  <TR>
+<TD PORT="o_output" BGCOLOR="indianred1">output</TD>
+</TR> </TABLE>>];
+1[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4"> <TR>
+<TD PORT="i_a" BGCOLOR="springgreen">a</TD>
+<TD PORT="i_b" BGCOLOR="springgreen">b</TD>
+</TR> <TR> <TD ROWSPAN="1" COLSPAN="2" BGCOLOR="khaki">Add</TD>  </TR>  <TR>
+<TD PORT="o_output" BGCOLOR="indianred1">output</TD>
+</TR> </TABLE>>];
+2[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">  <TR> <TD ROWSPAN="1" COLSPAN="1" BGCOLOR="khaki">Inc 2</TD> <TD PORT="p_start" BGCOLOR="lightblue">start</TD>
+ </TR>  <TR>
+<TD PORT="o_output" BGCOLOR="indianred1">output</TD>
+</TR> </TABLE>>];
+0->1 [headport="i_a" tailport="o_output"];
+2->1 [headport="i_b" tailport="o_output"];
+}
+
