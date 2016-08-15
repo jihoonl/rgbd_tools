@@ -1,0 +1,10 @@
+<launch>
+  <arg name="rate" default="1"/>
+  <arg name="bag_location" default="$(optenv ROSBAG_LOCATION /home/jihoonl/research/dataset)"/>
+  <arg name="bag" default="$(optenv ROSBAG rgbd_dataset_freiburg1_xyz.bag)"/>
+
+  <param name="/use_sim_time" value="true"/>
+
+  <node name="rviz" type="rviz" pkg="rviz" args=""/>
+  <node pkg="rosbag" type="play" name="player" output="screen" args="--rate=$(arg rate) --pause --clock $(arg bag_location)/$(arg bag)"/>
+</launch>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecto_test</name>
+  <version>0.0.0</version>
+  <description>The ecto_test package</description>
+
+  <maintainer email="jihoonl@todo.todo">jihoonl</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>ecto</build_depend>
+  <run_depend>ecto</run_depend>
+
+</package>
