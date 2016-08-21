@@ -65,6 +65,8 @@ plasm.connect(capture[:] >> verter[:],
 
 if __name__ == '__main__':
     sched = ecto.Scheduler(plasm)
-    print plasm.viz()
+    ecto.view_plasm(plasm)
+    #print plasm.viz()
 
     #sched.execute()
+    raw_input('press any key')

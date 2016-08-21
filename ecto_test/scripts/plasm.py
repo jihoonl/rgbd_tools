@@ -23,4 +23,7 @@ sched.execute(niter=2)
 
 # display the output name'output' in the outputs of cell 'add'
 #print add.outputs.output
-print plasm.viz()
+#print plasm.viz()
+ecto.view_plasm(plasm)
+
+raw_input('press any key')
