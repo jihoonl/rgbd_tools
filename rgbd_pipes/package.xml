@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>rgbd_pipes</name>
+  <version>0.0.0</version>
+  <description>The rgbd_pipes package</description>
+
+  <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>ecto</build_depend>
+  <build_depend>ecto_image_pipeline</build_depend>
+  <run_depend>ecto</run_depend>
+  <run_depend>ecto_image_pipeline</run_depend>
+
+</package>
