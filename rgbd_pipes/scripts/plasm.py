@@ -15,9 +15,13 @@ def generate_graph(in_topic, out_topic):
     planar_segmentation = SACSegmentationFromNormals('planar_segmentation', model_type=SACMODEL_NORMAL_PLANE, eps_angle=0.09, distance_threshold=0.1)
     project_inliers     = ProjectInliers('project_inliers', model_type=SACMODEL_NORMAL_PLANE)
     convex_hull         = ConvexHull('convex_hull')
+    grabber = OpenNI2Grabber()
 
+    """
     graph = [cloud_sub[:] >> msg2cloud[:],
              msg2cloud[:] >> voxel_grid[:],
+    """
+    graph = [grabber[:] >> voxel_grid[:],
              voxel_grid[:] >> normals[:],
              voxel_grid[:] >> planar_segmentation['input'],
              normals[:] >> planar_segmentation['normals'],
@@ -32,19 +36,24 @@ def generate_graph(in_topic, out_topic):
     extract_clusters = EuclideanClusterExtraction('extract_clusters', min_cluster_size=50, cluster_tolerance=0.005)
     colorize = ColorizeClusters('colorize')
     merge = MergeClouds('merge')
+    #viewer = CloudViewer("viewer", window_name="Clouds!")
 
     graph += [
-              msg2cloud[:] >> extract_stuff['input'],
+              #msg2cloud[:] >> extract_stuff['input'],
+              grabber[:] >> extract_stuff['input'],
               convex_hull[:] >> extract_stuff['planar_hull'],
               extract_stuff[:] >> extract_indices['indices'],
-              msg2cloud[:] >> extract_indices['input'],
+              #msg2cloud[:] >> extract_indices['input'],
+              grabber[:] >> extract_indices['input'],
 
               extract_indices[:] >> extract_clusters['input'],
               extract_clusters[:] >> colorize['clusters'],
               extract_indices[:] >> colorize['input'],
 
-              msg2cloud[:] >> merge['input'],
+              #msg2cloud[:] >> merge['input'],
+              grabber[:] >> merge['input'],
               colorize[:] >> merge['input2'],
+              #merge[:] >> viewer[:]
               merge[:] >> cloud2msg[:],
               cloud2msg[:] >> cloud_pub[:]
             ]
